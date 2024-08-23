@@ -1,0 +1,18 @@
+{
+    "sources": [
+        {
+            "url": "https://www.princetonreview.com/college-advice",
+            "name": "Princeton Review",
+            "selectors": {
+                "article": "div.resource-articles-all",
+                "link": "a",
+                "image": "img",
+                "title": "h5",
+                "link_attr": "href",
+                "img_attr": "src",
+                "text": "span",
+                "headings": "h2"
+            }
+        }
+    ]
+}
