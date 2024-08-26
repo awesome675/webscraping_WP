@@ -16,7 +16,7 @@ WP_PASSWORD = os.environ.get("WP_PASSWORD")
 
 posted_file = 'posted.txt'
 category_keywords = {
-    'College Advice/Admissions': ['college','application','admission','essay','degree'],
+    'College Advice/Admissions': ['college','application','admission','essay','degree', 'apply', 'major'],
     'Testing': ['SAT', 'ACT', 'score', 'AP'],
     'Scholarships/Finance': ['scholarship', 'funding', 'grant', 'FAFSA', 'aid', 'financial'],
     'Careers': ['career', 'job', 'sector', 'industry'],
@@ -144,11 +144,11 @@ def main():
         print('No more articles')
         return
     random.shuffle(new_articles_to_post)
-    articles_posted = new_articles_to_post[:5]
+    articles_posted = new_articles_to_post[:1]
 
     wp_client = Client('https://highschoolnote.com/xmlrpc.php', WP_USERNAME, WP_PASSWORD)
     for article in articles_posted:
-        print(f"Title: {article['title']}, Link: {article['link']}, Image: {article['image_url']}, Source: {article['source_name']}")
+        # print(f"Title: {article['title']}, Link: {article['link']}, Image: {article['image_url']}, Source: {article['source_name']}")
         post_to_wordpress(article, wp_client)
         posted_articles.add(article['link'])
     

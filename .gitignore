@@ -1,3 +1,5 @@
 virenv/
 
 src/.env
+
+run_script.bat
