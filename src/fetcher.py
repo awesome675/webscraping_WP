@@ -15,7 +15,21 @@ WP_USERNAME = os.environ.get("WP_USERNAME")
 WP_PASSWORD = os.environ.get("WP_PASSWORD")
 
 posted_file = 'posted.txt'
-test_keywords = ['']
+category_keywords = {
+    'College Advice/Admissions': ['college','application','admission','essay','degree'],
+    'Testing': ['SAT', 'ACT', 'test','score', 'AP'],
+    'Scholarships/Finance': ['scholarship', 'funding', 'grant', 'FAFSA', 'aid', 'financial'],
+    'Careers': ['career', 'job', 'sector', 'industry'],
+    'General': []
+}
+
+def pick_categories(title):
+    categories = []
+    for category, keywords in category_keywords.items():
+        if any(keyword.lower() in title.lower() for keyword in keywords):
+            categories.append(category)
+    return categories or ['General']
+
 
 def load_posted_articles():
     if os.path.exists(posted_file):
@@ -60,7 +74,7 @@ def fetch_articles(source):
             if not image_url:
                 image_url = default_url
             
-            if title and link and any(keyword.lower() in title.lower() for keyword in test_keywords):
+            if title and link:
                 articles.append({
                     'title': title,
                     'link': link,
@@ -85,7 +99,7 @@ def extract_content(item, selector, attribute=None):
 
 def post_to_wordpress(article, wp_client):
 
-    
+    categories = pick_categories(article['title'])
     post = WordPressPost()
     post.title = article['title']
     post.content = f"""
@@ -100,8 +114,7 @@ def post_to_wordpress(article, wp_client):
     </a>
     """
     post.terms_names = {
-        'post_tag': ['SAT'],
-        'category': ['Tests']
+        'category': categories
     }
     post.post_status = 'publish'
     wp_client.call(NewPost(post))
