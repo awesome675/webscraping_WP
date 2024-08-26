@@ -9,9 +9,72 @@
                 "image": "img",
                 "title": "h5",
                 "link_attr": "href",
-                "img_attr": "src",
-                "text": "span",
-                "headings": "h2"
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.appily.com/guidance/articles/college-admission-tests",
+            "name": "Appily College Tests",
+            "base_url": "https://www.appily.com",
+            "selectors": {
+                "article": "article",
+                "link": "a",
+                "image": "img",
+                "title": "span",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.ivywise.com/blog/",
+            "name": "IvyWise",
+            "base_url": "https://www.ivywise.com",
+            "selectors": {
+                "article": "article.post",
+                "link": "a",
+                "image": "img",
+                "title": "h2",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.collegeconfidential.com/articles/",
+            "name": "College Confidential",
+            "base_url": "https://www.collegeconfidential.com",
+            "selectors": {
+                "article": "div.article-card",
+                "link": "a",
+                "image": "img",
+                "title": "h2",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.unigo.com/articles",
+            "name": "Unigo",
+            "base_url": "https://www.unigo.com",
+            "selectors": {
+                "article": "div.row",
+                "link": "a",
+                "image": "img",
+                "title": "h2",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://blog.collegeboard.org/",
+            "name": "CollegeBoard",
+            "base_url": "https://blog.collegeboard.org",
+            "selectors": {
+                "article": "div.cb-card",
+                "link": "a",
+                "image": "img",
+                "title": "h3",
+                "link_attr": "href",
+                "img_attr": "src"
             }
         }
     ]
