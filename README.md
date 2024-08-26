@@ -1,6 +1,6 @@
-<h1>Project Name</h1>
+<h1>Article -> WordPress Post</h1>
 
-<p>This automation gathers articles from a variety of sources and posts them to a Wordpress site, on a daily basis.</p>
+<p>This automation gathers articles from a variety of sources and posts them to a WordPress site, daily.</p>
 
 <h2>Tools Used</h2>
 <ul>
