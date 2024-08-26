@@ -17,9 +17,10 @@ WP_PASSWORD = os.environ.get("WP_PASSWORD")
 posted_file = 'posted.txt'
 category_keywords = {
     'College Advice/Admissions': ['college','application','admission','essay','degree'],
-    'Testing': ['SAT', 'ACT', 'test','score', 'AP'],
+    'Testing': ['SAT', 'ACT', 'score', 'AP'],
     'Scholarships/Finance': ['scholarship', 'funding', 'grant', 'FAFSA', 'aid', 'financial'],
     'Careers': ['career', 'job', 'sector', 'industry'],
+    'Extracurriculars': ['programs', 'summer programs', 'activities', 'extracurriculars', 'projects'],
     'General': []
 }
 
@@ -114,6 +115,7 @@ def post_to_wordpress(article, wp_client):
     </a>
     """
     post.terms_names = {
+        'post_tag': categories,
         'category': categories
     }
     post.post_status = 'publish'
