@@ -76,6 +76,58 @@
                 "link_attr": "href",
                 "img_attr": "src"
             }
+        },
+        {
+            "url": "https://nextadmit.com/blog/",
+            "name": "NextAdmit",
+            "base_url": "https://nextadmit.com",
+            "selectors": {
+                "article": "article",
+                "link": "a",
+                "image": "img",
+                "title": "h4",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://liberalartsedu.org/blog/",
+            "name": "Liberal Arts Edu",
+            "base_url": "https://liberalartsedu.org",
+            "selectors": {
+                "article": "article",
+                "link": "a",
+                "image": "img",
+                "title": "h2",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.road2college.com/category/college-financial-planning/",
+            "name": "Road2College",
+            "base_url": "https://www.road2college.com",
+            "selectors": {
+                "article": "div.article-item",
+                "link": "a",
+                "image": "img",
+                "title": "h3",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
+        },
+        {
+            "url": "https://www.teenlife.com/tags/career-advice/",
+            "name": "TeenLife",
+            "base_url": "https://www.teenlife.com",
+            "selectors": {
+                "article": "article",
+                "link": "a",
+                "image": "img",
+                "title": "h3",
+                "link_attr": "href",
+                "img_attr": "src"
+            }
         }
     ]
 }

@@ -83,30 +83,29 @@ def extract_content(item, selector, attribute=None):
 
 
 
-def post_to_wordpress(articles, wp_client):
+def post_to_wordpress(article, wp_client):
 
     
-    for article in articles:
-        post = WordPressPost()
-        post.title = article['title']
-        post.content = f"""
-        <a href='{article['link']}' target='_blank' style='text-decoration: none; color: inherit;'>
-            <div class='card' style='width: 18rem; margin: 10px auto; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);'>
-                <img class='card-img-top' src='{article['image_url']}' alt='Card image cap' style='width: 100%; height: auto;'>
-                <div class='card-body' style='padding: 15px;'>
-                    <h5 class='card-title' style='font-size: 1.25rem; margin-bottom: 10px;'>{article['title']}</h5>
-                    <h4 class='card-source' style='font-size: 1rem; margin-bottom: 5px;'>{article['source_name']}</h4>
-                </div>
+    post = WordPressPost()
+    post.title = article['title']
+    post.content = f"""
+    <a href='{article['link']}' target='_blank' style='text-decoration: none; color: inherit;'>
+        <div class='card' style='width: 18rem; margin: 10px auto; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);'>
+            <img class='card-img-top' src='{article['image_url']}' alt='Card image cap' style='width: 100%; height: auto;'>
+            <div class='card-body' style='padding: 15px;'>
+                <h5 class='card-title' style='font-size: 1.25rem; margin-bottom: 10px;'>{article['title']}</h5>
+                <h4 class='card-source' style='font-size: 1rem; margin-bottom: 5px;'>{article['source_name']}</h4>
             </div>
-        </a>
-        """
-        post.terms_names = {
-            'post_tag': ['SAT'],
-            'category': ['Tests']
-        }
-        post.post_status = 'publish'
-        wp_client.call(NewPost(post))
-        print(f"Posted: {article['title']}")
+        </div>
+    </a>
+    """
+    post.terms_names = {
+        'post_tag': ['SAT'],
+        'category': ['Tests']
+    }
+    post.post_status = 'publish'
+    wp_client.call(NewPost(post))
+    print(f"Posted: {article['title']}")
 
 
     
@@ -135,7 +134,7 @@ def main():
     wp_client = Client('https://highschoolnote.com/xmlrpc.php', WP_USERNAME, WP_PASSWORD)
     for article in articles_posted:
         print(f"Title: {article['title']}, Link: {article['link']}, Image: {article['image_url']}, Source: {article['source_name']}")
-        # post_to_wordpress(article, wp_client)
+        post_to_wordpress(article, wp_client)
         posted_articles.add(article['link'])
     
     save_posted_articles([article['link'] for article in articles_posted])
